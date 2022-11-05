@@ -29,4 +29,7 @@ function playRound() {
         return console.log("You lose. Paper covers Rock")
     }     
 }
-playRound();
+
+function game(){
+    
+}
