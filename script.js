@@ -4,5 +4,29 @@ function computerChoice() {
      return rpsArray[randomNumber]; // returns the string at that array position
 }
 
-let playerSelection = prompt("Make your Choice"); 
+let playerChoice = prompt("Make your Choice");
 
+
+function playRound() {
+    let playerSelection = playerChoice.toLowerCase();
+    let computerSelection = computerChoice().toLowerCase();
+    // Paper covers Rock
+    // Rock smashes Scissors
+    // Scissors cut paper
+    if (computerSelection === playerSelection) {
+        return console.log("Stalemate");
+    } else if (computerSelection === "rock" && playerSelection === "paper") {
+        return console.log("Paper covers rock! You Win!");
+    } else if ( computerSelection === "rock" && playerSelection === "scissors") {
+        return console.log("You lose. Rock smashes scissors.");
+    } else if (computerSelection === "scissors" && playerSelection === "rock") {
+        return console.log("Rock smashes scissors! You Win!");
+    } else if (computerSelection === "scissors" && playerSelection === "paper") {
+        return console.log("You lose. Scissors cut paper.");
+    } else if (computerSelection === "paper" && playerSelection === "scissors") {
+        return console.log("Scissors cut paper! You win!");
+    } else if (computerSelection === "paper" && playerSelection === "rock") {
+        return console.log("You lose. Paper covers Rock")
+    }     
+}
+playRound();
