@@ -4,9 +4,8 @@ function computerChoice() {
      return rpsArray[randomNumber]; // returns the string at that array position
 }
 
-let playerChoice = prompt("Make your Choice");
-
 function playRound() {
+    let playerChoice = prompt("Make your Choice");
     let playerSelection = playerChoice.toLowerCase();
     let computerSelection = computerChoice();
     // Paper covers Rock
@@ -37,4 +36,4 @@ function playRound() {
         console.log("Oops! Something went wrong");
     }     
 }
-playRound();
+
