@@ -1,3 +1,6 @@
+const computerScore = 0;
+const playerScore = 0;
+
 function computerChoice() {
     let rpsArray = ["rock", "paper", "scissors"]; // create array to use for computerChoice
     let randomNumber = Math.floor(Math.random() * rpsArray.length); //takes random number and multiplies it by the length of rpsArray (3)
@@ -15,28 +18,38 @@ function playRound() {
         return console.log("Stalemate");
 
     } else if (computerSelection === "rock" && playerSelection === "paper") {
-        return console.log("Paper covers rock! You Win!");
+        console.log("Paper covers rock! You Win!");
+        return playerScore++;
 
     } else if ( computerSelection === "rock" && playerSelection === "scissors") {
-        return console.log("You lose. Rock smashes scissors.");
+        console.log("You lose. Rock smashes scissors.");
+        return computerScore++;
 
-    } else if (computerSelection === "scissors" && playerSelection === "rock") {
-        return console.log("Rock smashes scissors! You Win!");
+    } else if (computerSelection === "scissors" && playerSelection === "rock") { 
+        console.log("Rock smashes scissors! You Win!");
+        return playerScore++;
 
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        return console.log("You lose. Scissors cut paper.");
+        console.log("You lose. Scissors cut paper.");
+        return computerScore++;
 
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        return console.log("Scissors cut paper! You win!");
+        console.log("Scissors cut paper! You win!");
+        return playerScore++;
 
     } else if (computerSelection === "paper" && playerSelection === "rock") {
-        return console.log("You lose. Paper covers Rock")
+        console.log("You lose. Paper covers Rock");
+        return computerScore++;
 
     } else {
         console.log("Oops! Something went wrong");
     }     
 }
 
-function game() {
-    
-}
+playRound();
+
+//function game() {
+  // for ( let i = 0; i < 5; i++) {
+
+   //} 
+//}
