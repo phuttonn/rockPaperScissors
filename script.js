@@ -1,5 +1,5 @@
-const computerScore = 0;
-const playerScore = 0;
+let computerScore = 0;
+let playerScore = 0;
 
 function computerChoice() {
     let rpsArray = ["rock", "paper", "scissors"]; // create array to use for computerChoice
