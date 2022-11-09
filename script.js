@@ -46,10 +46,12 @@ function playRound() {
     }     
 }
 
-playRound();
 
-//function game() {
-  // for ( let i = 0; i < 5; i++) {
+function game() {
+   for ( let i = 0; i < 5; i++) {
+        playRound();
+   } 
+}
+game();
 
-   //} 
-//}
+console.log(`After 5 rounds the score is player: ${playerScore} and computer: ${computerScore}`);
