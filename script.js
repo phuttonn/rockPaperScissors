@@ -7,9 +7,27 @@ function computerChoice() {
      return rpsArray[randomNumber]; // returns the string at that array position
 }
 
+function playerChoice () {
+    const rockBtn = document.querySelector('#rock');
+    const scissBtn = document.querySelector('#scissors');
+    const paperBtn = document.querySelector('#paper');
+
+    rockBtn.addEventListener('click', () => {
+        console.log(rockBtn.id);
+    });
+
+    scissBtn.addEventListener('click', () => {
+        console.log(scissBtn.id);
+    });
+    
+    paperBtn.addEventListener('click', () => {
+        console.log(paperBtn.id);
+    });
+}
+
+
 function playRound() {
-    let playerChoice = prompt("Make your Choice");
-    let playerSelection = playerChoice.toLowerCase();
+    let playerSelection = playerChoice();
     let computerSelection = computerChoice();
     // Paper covers Rock
     // Rock smashes Scissors
@@ -39,12 +57,10 @@ function playRound() {
 
     } else if (computerSelection === "paper" && playerSelection === "rock") {
         console.log("You lose. Paper covers Rock");
-        return computerScore++;
-
-    } else {
-        console.log("Oops! Something went wrong");
-    }     
+        return computerScore++;  
 }
+}
+
 
 
 function game() {
@@ -54,4 +70,4 @@ function game() {
 }
 game();
 
-console.log(`After 5 rounds the score is player: ${playerScore} and computer: ${computerScore}`);
+//console.log(`After 5 rounds the score is player: ${playerScore} and computer: ${computerScore}`);
