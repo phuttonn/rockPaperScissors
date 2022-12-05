@@ -7,27 +7,23 @@ function computerChoice() {
      return rpsArray[randomNumber]; // returns the string at that array position
 }
 
-function playerChoice () {
-    const rockBtn = document.querySelector('#rock');
-    const scissBtn = document.querySelector('#scissors');
-    const paperBtn = document.querySelector('#paper');
+let playerChoice;
 
-    rockBtn.addEventListener('click', () => {
-        console.log(rockBtn.id);
-    });
+const buttons = document.querySelectorAll('button');
 
-    scissBtn.addEventListener('click', () => {
-        console.log(scissBtn.id);
-    });
+buttons.forEach((button) => {
     
-    paperBtn.addEventListener('click', () => {
-        console.log(paperBtn.id);
+    // and for each button we add a 'click' listener that stores its id in playerChoice variable
+    
+    button.addEventListener('click', () => {
+      playerChoice = button.id;
+      playRound();
     });
-}
+  });
 
 
 function playRound() {
-    let playerSelection = playerChoice();
+    let playerSelection = playerChoice;
     let computerSelection = computerChoice();
     // Paper covers Rock
     // Rock smashes Scissors
@@ -63,11 +59,11 @@ function playRound() {
 
 
 
-function game() {
-   for ( let i = 0; i < 5; i++) {
-        playRound();
-   } 
-}
-game();
+//function game() {
+   //for ( let i = 0; i < 5; i++) {
+        //playRound();
+  // } 
+//}
+//game();
 
 //console.log(`After 5 rounds the score is player: ${playerScore} and computer: ${computerScore}`);
