@@ -7,8 +7,6 @@ function computerChoice() {
      return rpsArray[randomNumber]; // returns the string at that array position
 }
 
-let playerChoice;
-
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
