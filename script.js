@@ -19,7 +19,11 @@ buttons.forEach((button) => {
     });
   });
 
-
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    results.textContent = "";
+}
   const results = document.querySelector('.rps-results');
 
   function game() {
@@ -29,8 +33,10 @@ buttons.forEach((button) => {
      if (playerScore === 5 || computerScore === 5) {
           if (playerScore > computerScore) {
               finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
+              reset();
            } else {
-              finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`)
+              finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
+              reset();
       }
      }
   
