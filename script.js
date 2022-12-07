@@ -20,48 +20,59 @@ buttons.forEach((button) => {
   });
 
 
+  const results = document.querySelector('.rps-results');
+
+  function game() {
+      const finalResults = document.createElement('p');
+      finalResults.classList.add('finalResults');
+      
+     if (playerScore === 5 || computerScore === 5) {
+          if (playerScore > computerScore) {
+              finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
+           } else {
+              finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`)
+      }
+     }
+  
+     results.appendChild(finalResults);
+  
+  }
 function playRound() {
     let playerSelection = playerChoice;
     let computerSelection = computerChoice();
+    
     // Paper covers Rock
     // Rock smashes Scissors
     // Scissors cut paper
+
     if (computerSelection === playerSelection) {
-        return console.log("Stalemate");
+        results.textContent = ("Stalemate");
 
     } else if (computerSelection === "rock" && playerSelection === "paper") {
-        console.log("Paper covers rock! You Win!");
+        results.textContent = ("Paper covers rock! You Win!");
         return playerScore++;
 
     } else if ( computerSelection === "rock" && playerSelection === "scissors") {
-        console.log("You lose. Rock smashes scissors.");
+        results.textContent = ("You lose. Rock smashes scissors.");
         return computerScore++;
 
     } else if (computerSelection === "scissors" && playerSelection === "rock") { 
-        console.log("Rock smashes scissors! You Win!");
+        results.textContent = ("Rock smashes scissors! You Win!");
         return playerScore++;
 
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
-        console.log("You lose. Scissors cut paper.");
+        results.textContent = ("You lose. Scissors cut paper.");
         return computerScore++;
 
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
-        console.log("Scissors cut paper! You win!");
+        results.textContent = ("Scissors cut paper! You win!");
         return playerScore++;
 
     } else if (computerSelection === "paper" && playerSelection === "rock") {
-        console.log("You lose. Paper covers Rock");
+        results.textContent = ("You lose. Paper covers Rock");
         return computerScore++;  
 }
+game();
 }
 
 
-
-//function game() {
-   //for ( let i = 0; i < 5; i++) {
-        //playRound();
-  // } 
-//}
-//game();
-
-//console.log(`After 5 rounds the score is player: ${playerScore} and computer: ${computerScore}`);
