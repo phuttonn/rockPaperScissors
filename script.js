@@ -37,14 +37,12 @@ function endGame() {
         finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
         reset();
     }
-
+    results.appendChild(finalResults);
 }
 function checkScore() {  
     if (playerScore === 5 || computerScore === 5) {
         endGame();
      }
-  
-     results.appendChild(finalResults);
   }
 
 function playRound() {
