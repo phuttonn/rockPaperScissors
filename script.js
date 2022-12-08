@@ -1,10 +1,14 @@
+let computerScore = 0;
+let playerScore = 0;
+
+const results = document.querySelector('.rps-results');
+const buttons = document.querySelectorAll('button');
+
 function computerChoice() {
     let rpsArray = ["rock", "paper", "scissors"]; // create array to use for computerChoice
     let randomNumber = Math.floor(Math.random() * rpsArray.length); //takes random number and multiplies it by the length of rpsArray (3)
      return rpsArray[randomNumber]; // returns the string at that array position
 }
-
-const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     
@@ -16,33 +20,29 @@ buttons.forEach((button) => {
     });
   });
 
-let computerScore = 0;
-let playerScore = 0;
-
 function reset() {
     playerScore = 0;
     computerScore = 0;
     results.textContent = "";
 }
-  const results = document.querySelector('.rps-results');
 
-  function game() {
-      const finalResults = document.createElement('p');
-      finalResults.classList.add('finalResults');
+function game() {
+    const finalResults = document.createElement('p');
+    finalResults.classList.add('finalResults');
       
-     if (playerScore === 5 || computerScore === 5) {
-          if (playerScore > computerScore) {
-              finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
-              reset();
-           } else if (computerScore > playerScore) {
-              finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
-              reset();
-      }
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore > computerScore) {
+            finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
+            reset();
+        } else if (computerScore > playerScore) {
+            finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
+            reset();
+        }
      }
   
      results.appendChild(finalResults);
-  
   }
+
 function playRound() {
     let playerSelection = playerChoice;
     let computerSelection = computerChoice();
