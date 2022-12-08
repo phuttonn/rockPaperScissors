@@ -34,7 +34,7 @@ function endGame() {
         finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
         reset();
     }
-    
+
 }
 function checkScore() {
     const finalResults = document.createElement('p');
@@ -82,5 +82,5 @@ function playRound() {
         results.textContent = ("You lose. Paper covers Rock");
         ++computerScore;  
 }
-game();
+checkScore();
 }
