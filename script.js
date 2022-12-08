@@ -1,6 +1,3 @@
-let computerScore = 0;
-let playerScore = 0;
-
 function computerChoice() {
     let rpsArray = ["rock", "paper", "scissors"]; // create array to use for computerChoice
     let randomNumber = Math.floor(Math.random() * rpsArray.length); //takes random number and multiplies it by the length of rpsArray (3)
@@ -19,6 +16,9 @@ buttons.forEach((button) => {
     });
   });
 
+let computerScore = 0;
+let playerScore = 0;
+
 function reset() {
     playerScore = 0;
     computerScore = 0;
@@ -34,7 +34,7 @@ function reset() {
           if (playerScore > computerScore) {
               finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
               reset();
-           } else {
+           } else if (computerScore > playerScore) {
               finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
               reset();
       }
@@ -56,29 +56,27 @@ function playRound() {
 
     } else if (computerSelection === "rock" && playerSelection === "paper") {
         results.textContent = ("Paper covers rock! You Win!");
-        return playerScore++;
+        ++playerScore;
 
     } else if ( computerSelection === "rock" && playerSelection === "scissors") {
         results.textContent = ("You lose. Rock smashes scissors.");
-        return computerScore++;
+        ++computerScore;
 
     } else if (computerSelection === "scissors" && playerSelection === "rock") { 
         results.textContent = ("Rock smashes scissors! You Win!");
-        return playerScore++;
+        ++playerScore;
 
     } else if (computerSelection === "scissors" && playerSelection === "paper") {
         results.textContent = ("You lose. Scissors cut paper.");
-        return computerScore++;
+        ++computerScore;
 
     } else if (computerSelection === "paper" && playerSelection === "scissors") {
         results.textContent = ("Scissors cut paper! You win!");
-        return playerScore++;
+        ++playerScore;
 
     } else if (computerSelection === "paper" && playerSelection === "rock") {
         results.textContent = ("You lose. Paper covers Rock");
-        return computerScore++;  
+        ++computerScore;  
 }
 game();
 }
-
-
