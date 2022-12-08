@@ -27,6 +27,9 @@ function reset() {
 }
 
 function endGame() {
+    const finalResults = document.createElement('p');
+    finalResults.classList.add('finalResults');
+
     if (playerScore > computerScore) {
         finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
         reset();
@@ -36,10 +39,7 @@ function endGame() {
     }
 
 }
-function checkScore() {
-    const finalResults = document.createElement('p');
-    finalResults.classList.add('finalResults');
-      
+function checkScore() {  
     if (playerScore === 5 || computerScore === 5) {
         endGame();
      }
