@@ -26,18 +26,22 @@ function reset() {
     results.textContent = "";
 }
 
-function game() {
+function endGame() {
+    if (playerScore > computerScore) {
+        finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
+        reset();
+    } else if (computerScore > playerScore) {
+        finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
+        reset();
+    }
+    
+}
+function checkScore() {
     const finalResults = document.createElement('p');
     finalResults.classList.add('finalResults');
       
     if (playerScore === 5 || computerScore === 5) {
-        if (playerScore > computerScore) {
-            finalResults.textContent = (`You Win! ${playerScore}-${computerScore}.`);
-            reset();
-        } else if (computerScore > playerScore) {
-            finalResults.textContent = (`You lose. ${computerScore}-${playerScore}.`);
-            reset();
-        }
+        endGame();
      }
   
      results.appendChild(finalResults);
